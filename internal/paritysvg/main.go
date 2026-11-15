@@ -1,5 +1,6 @@
 // Command paritysvg draws the README graphics from parity/results.json:
-// parity.svg (one row per check), banner.svg and shields.io endpoint badges.
+// parity.svg (one row per check), banner.svg, social.svg (social preview)
+// and shields.io endpoint badges.
 //
 //	go run ./internal/paritysvg -in parity/results.json -out docs/generated
 package main
@@ -70,7 +71,7 @@ func main() {
 	if err := os.MkdirAll(*out, 0o755); err != nil {
 		fail(err)
 	}
-	files := map[string]string{"parity.svg": paritySVG(r), "banner.svg": bannerSVG(r)}
+	files := map[string]string{"parity.svg": paritySVG(r), "banner.svg": bannerSVG(r), "social.svg": socialSVG(r)}
 	for _, ref := range r.References {
 		files["badge-"+ref.ID+".json"] = badge(ref)
 	}
@@ -270,6 +271,50 @@ func bannerSVG(r results) string {
 	}
 	fmt.Fprintf(&b, `<text x="%d" y="282" font-size="13" fill="%s" text-anchor="end">Parität mit KoSIT und Mustang · Stand %s</text>`, 1240, darkMute, germanDate(r.Checked))
 	fmt.Fprintf(&b, `<rect x="0" y="%d" width="%d" height="10" fill="%s"/></g>`, height-10, width, sage)
+	b.WriteString("</svg>\n")
+	return b.String()
+}
+
+// socialSVG is the 1280×640 social preview (GitHub repository settings, link
+// previews). GitHub accepts only raster images there, so render it to PNG.
+func socialSVG(r results) string {
+	const width, height = 1280, 640
+	var b strings.Builder
+	fmt.Fprintf(&b, `<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d" role="img" aria-labelledby="t d">`, width, height, width, height)
+	fmt.Fprintf(&b, `<title id="t">go-e-rechnung-validator</title><desc id="d">XRechnung und ZUGFeRD / Factur-X in purem Go prüfen, ohne Java. %s</desc>`, esc(describe(r)))
+	fmt.Fprintf(&b, `<style>svg{font-family:%s}</style>`, fonts)
+	fmt.Fprintf(&b, `<rect width="%d" height="%d" fill="%s"/>`, width, height, ink)
+	fmt.Fprintf(&b, `<svg x="80" y="78" width="104" height="130" viewBox="9.22 -4.88 81.93 102.3">%s</svg>`, feather)
+	fmt.Fprintf(&b, `<text x="208" y="150" font-size="62" font-weight="700" fill="%s" letter-spacing="-1">go-e-rechnung-validator</text>`, paper)
+	fmt.Fprintf(&b, `<text x="211" y="204" font-size="28" fill="%s">XRechnung und ZUGFeRD / Factur-X prüfen –</text>`, darkMint)
+	fmt.Fprintf(&b, `<text x="211" y="242" font-size="28" fill="%s">in purem Go, ohne Java, ohne Netz.</text>`, darkMint)
+
+	cardW, cardX := 548, []int{80, 652}
+	for n, ref := range r.References {
+		if n >= len(cardX) {
+			break
+		}
+		m, t := documents(ref)
+		ok := m == t && len(ref.Deviations) == 0
+		cx := cardX[n]
+		fmt.Fprintf(&b, `<rect x="%d" y="300" width="%d" height="216" rx="20" fill="%s" fill-opacity=".07" stroke="%s" stroke-opacity=".30"/>`, cx, cardW, paper, darkMint)
+		fmt.Fprintf(&b, `<text x="%d" y="348" font-size="24" font-weight="700" fill="%s">%s <tspan font-weight="400" fill="%s">%s</tspan></text>`, cx+32, paper, esc(ref.Name), darkMute, esc(ref.Version))
+		fmt.Fprintf(&b, `<text x="%d" y="438" font-size="76" font-weight="700" fill="%s" letter-spacing="-2">%d/%d</text>`, cx+32, paper, m, t)
+		markColor, word := darkMint, "Dokumente identisch"
+		if !ok {
+			markColor, word = warnDark, "Abweichung"
+		}
+		fmt.Fprintf(&b, `<circle cx="%d" cy="477" r="12" fill="%s"/>`, cx+44, markColor)
+		if ok {
+			fmt.Fprintf(&b, `<path d="M%.1f 477.3 l4.3 4.3 l8 -8.5" fill="none" stroke="%s" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`, float64(cx+44)-6.2, ink)
+		} else {
+			fmt.Fprintf(&b, `<path d="M%d 470 v8 M%d 483 v0.3" fill="none" stroke="%s" stroke-width="3.2" stroke-linecap="round"/>`, cx+44, cx+44, ink)
+		}
+		fmt.Fprintf(&b, `<text x="%d" y="484" font-size="21" fill="%s">%s</text>`, cx+66, darkMint, word)
+	}
+	fmt.Fprintf(&b, `<text x="80" y="568" font-size="19" fill="%s">XRechnung %s · Factur-X %s · Library, CLI und Testhelfer · MPL-2.0</text>`, darkMute, esc(r.Bundle["XRechnung"]), esc(r.Bundle["Factur-X"]))
+	fmt.Fprintf(&b, `<text x="1200" y="568" font-size="17" fill="%s" text-anchor="end">Stand %s</text>`, darkMute, germanDate(r.Checked))
+	fmt.Fprintf(&b, `<rect x="0" y="%d" width="%d" height="14" fill="%s"/>`, height-14, width, sage)
 	b.WriteString("</svg>\n")
 	return b.String()
 }

@@ -33,7 +33,7 @@ func wellFormed(t *testing.T, svg string) {
 
 func TestGraphics(t *testing.T) {
 	ok := sample(78)
-	for _, svg := range []string{paritySVG(ok), bannerSVG(ok)} {
+	for _, svg := range []string{paritySVG(ok), bannerSVG(ok), socialSVG(ok)} {
 		wellFormed(t, svg)
 		if strings.Contains(svg, "abweichend") || strings.Contains(svg, "Abweichung") {
 			t.Error("parity drawn as deviation")
@@ -46,7 +46,7 @@ func TestGraphics(t *testing.T) {
 	if s := paritySVG(bad); !strings.Contains(s, "77/78") || !strings.Contains(s, "abweichend") {
 		t.Error("deviation not shown in parity.svg")
 	}
-	if !strings.Contains(bannerSVG(bad), "Abweichung") {
+	if !strings.Contains(bannerSVG(bad), "Abweichung") || !strings.Contains(socialSVG(bad), "Abweichung") {
 		t.Error("deviation not shown in banner.svg")
 	}
 	if b := badge(bad.References[0]); !strings.Contains(b, `"77/78 identisch"`) || strings.Contains(b, "397e6b") {
