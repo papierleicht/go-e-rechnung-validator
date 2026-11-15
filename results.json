@@ -1,0 +1,64 @@
+{
+  "checked": "2026-11-15",
+  "parity": true,
+  "bundle": {
+    "XRechnung": "3.0.2",
+    "Factur-X": "1.09.2"
+  },
+  "references": [
+    {
+      "id": "kosit",
+      "name": "KoSIT-Validator",
+      "version": "1.6.3",
+      "details": "Konfiguration 2026-08-31, Testsuite 2026-08-31",
+      "checks": [
+        {
+          "label": "Offizielle KoSIT-Testsuite",
+          "unit": "documents",
+          "total": 78,
+          "matching": 78
+        },
+        {
+          "label": "XRechnung-Korpus (CII + UBL)",
+          "unit": "documents",
+          "total": 36,
+          "matching": 36
+        },
+        {
+          "label": "Regeldateien gleich dem KoSIT-Release",
+          "unit": "files",
+          "total": 5,
+          "matching": 5
+        }
+      ],
+      "deviations": []
+    },
+    {
+      "id": "mustang",
+      "name": "Mustang",
+      "version": "2.26.0",
+      "details": "ZUGFeRD / Factur-X, PDF/A-3 per veraPDF",
+      "checks": [
+        {
+          "label": "Factur-X-Korpus (BASIC, EN 16931, EXTENDED)",
+          "unit": "documents",
+          "total": 36,
+          "matching": 36
+        },
+        {
+          "label": "Absichtlich fehlerhafte XML",
+          "unit": "documents",
+          "total": 24,
+          "matching": 24
+        },
+        {
+          "label": "PDF/A-3 mit eingebetteter XML",
+          "unit": "documents",
+          "total": 6,
+          "matching": 6
+        }
+      ],
+      "deviations": []
+    }
+  ]
+}
