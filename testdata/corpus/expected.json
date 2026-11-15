@@ -1,0 +1,440 @@
+{
+  "facturx-basic-credit-note-export.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-credit-note-intra-community.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-credit-note-reverse-charge.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-credit-note-small-business.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-credit-note-standard.pdf": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-credit-note-standard.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-credit-note-zero-rated.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-export.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-intra-community.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-reverse-charge.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-small-business.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-standard.pdf": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-standard.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-basic-invoice-zero-rated.xml": {
+    "state": "valid",
+    "format": "facturx-basic",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-export.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-intra-community.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-reverse-charge.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-small-business.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-standard.pdf": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-standard.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-credit-note-zero-rated.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-export.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-intra-community.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-reverse-charge.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-small-business.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-standard.pdf": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-standard.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-en16931-invoice-zero-rated.xml": {
+    "state": "valid",
+    "format": "facturx-en16931",
+    "rules": []
+  },
+  "facturx-extended-credit-note-export.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-credit-note-intra-community.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-credit-note-reverse-charge.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-credit-note-small-business.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-credit-note-standard.pdf": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-credit-note-standard.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-credit-note-zero-rated.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-export.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-intra-community.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-reverse-charge.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-small-business.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-standard.pdf": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-standard.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "facturx-extended-invoice-zero-rated.xml": {
+    "state": "valid",
+    "format": "facturx-extended",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-export.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-intra-community.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-reverse-charge.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-small-business.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-standard.pdf": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-standard.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-credit-note-zero-rated.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-export.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-intra-community.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-reverse-charge.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-small-business.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-standard.pdf": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-standard.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-invoice-zero-rated.xml": {
+    "state": "valid",
+    "format": "xrechnung-cii",
+    "rules": []
+  },
+  "xrechnung-cii-missing-buyer-address.xml": {
+    "state": "invalid",
+    "format": "xrechnung-cii",
+    "rules": [
+      "PEPPOL-EN16931-R010"
+    ]
+  },
+  "xrechnung-cii-missing-phone.xml": {
+    "state": "invalid",
+    "format": "xrechnung-cii",
+    "rules": [
+      "BR-DE-27",
+      "BR-DE-6"
+    ]
+  },
+  "xrechnung-cii-missing-process.xml": {
+    "state": "invalid",
+    "format": "xrechnung-cii",
+    "rules": [
+      "PEPPOL-EN16931-R001"
+    ]
+  },
+  "xrechnung-cii-missing-reference.xml": {
+    "state": "invalid",
+    "format": "xrechnung-cii",
+    "rules": [
+      "BR-DE-15"
+    ]
+  },
+  "xrechnung-cii-missing-seller-address.xml": {
+    "state": "invalid",
+    "format": "xrechnung-cii",
+    "rules": [
+      "PEPPOL-EN16931-R020"
+    ]
+  },
+  "xrechnung-cii-wrong-total.xml": {
+    "state": "invalid",
+    "format": "xrechnung-cii",
+    "rules": [
+      "BR-CO-15",
+      "BR-CO-16"
+    ]
+  },
+  "xrechnung-ubl-credit-note-export.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-credit-note-intra-community.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-credit-note-reverse-charge.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-credit-note-small-business.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-credit-note-standard.pdf": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-credit-note-standard.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-credit-note-zero-rated.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-export.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-intra-community.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-reverse-charge.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-small-business.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-standard.pdf": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-standard.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-invoice-zero-rated.xml": {
+    "state": "valid",
+    "format": "xrechnung-ubl",
+    "rules": []
+  },
+  "xrechnung-ubl-missing-buyer-address.xml": {
+    "state": "invalid",
+    "format": "xrechnung-ubl",
+    "rules": [
+      "PEPPOL-EN16931-R010"
+    ]
+  },
+  "xrechnung-ubl-missing-phone.xml": {
+    "state": "invalid",
+    "format": "xrechnung-ubl",
+    "rules": [
+      "BR-DE-27",
+      "BR-DE-6"
+    ]
+  },
+  "xrechnung-ubl-missing-process.xml": {
+    "state": "invalid",
+    "format": "xrechnung-ubl",
+    "rules": [
+      "PEPPOL-EN16931-R001"
+    ]
+  },
+  "xrechnung-ubl-missing-reference.xml": {
+    "state": "invalid",
+    "format": "xrechnung-ubl",
+    "rules": [
+      "BR-DE-15"
+    ]
+  },
+  "xrechnung-ubl-missing-seller-address.xml": {
+    "state": "invalid",
+    "format": "xrechnung-ubl",
+    "rules": [
+      "PEPPOL-EN16931-R020"
+    ]
+  },
+  "xrechnung-ubl-wrong-total.xml": {
+    "state": "invalid",
+    "format": "xrechnung-ubl",
+    "rules": [
+      "BR-CO-15",
+      "BR-CO-16"
+    ]
+  }
+}

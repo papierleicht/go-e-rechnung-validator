@@ -1,0 +1,87 @@
+# Compares the validator with the latest KoSIT and Mustang releases. On pull
+# requests it only checks; on main, weekly and on demand it also publishes
+# results.json, the README graphics and the badge endpoints to the branch
+# "parity" (generated content, outside the main ruleset).
+name: Parity
+on:
+  pull_request:
+    paths: ["rules/**", "*.go", "go.mod", "go.sum", "parity/**", "internal/paritysvg/**", "testdata/corpus/**", ".github/workflows/parity.yml"]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: parity-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  parity:
+    name: Official validator parity (KoSIT, Mustang)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: stable
+          check-latest: true
+      - name: Use Java 21
+        run: echo "$JAVA_HOME_21_X64/bin" >> "$GITHUB_PATH"
+      - name: Compare with KoSIT and Mustang
+        id: parity
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          python3 parity/parity.py --cache "$RUNNER_TEMP/parity-cache"
+          status=$?
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          # 1 = deviation: still draw and publish it, then fail below.
+          [ "$status" -le 1 ]
+      - name: Draw graphics
+        run: |
+          go run ./internal/paritysvg -in parity/results.json -out "$RUNNER_TEMP/parity-out"
+          cp parity/results.json "$RUNNER_TEMP/parity-out/"
+          {
+            echo "### Parity"
+            echo
+            jq -r '.references[] | (.name + " " + .version) as $n | .checks[] | "- " + $n + ": " + .label + " " + (.matching|tostring) + "/" + (.total|tostring)' parity/results.json
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: parity
+          path: ${{ runner.temp }}/parity-out
+      - name: Publish to branch parity
+        if: github.event_name != 'pull_request' && github.repository == 'papierleicht/go-e-rechnung-validator'
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          remote="https://x-access-token:${TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          dir="$RUNNER_TEMP/parity-branch"
+          if git ls-remote --exit-code --heads "$remote" parity >/dev/null; then
+            git clone --quiet --depth 1 --branch parity "$remote" "$dir"
+          else
+            git init --quiet -b parity "$dir"
+            git -C "$dir" remote add origin "$remote"
+          fi
+          cp "$RUNNER_TEMP"/parity-out/* "$dir/"
+          cd "$dir"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No change."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit --quiet -m "chore: parity $(jq -r .checked results.json)"
+          git push --quiet origin HEAD:parity
+      - name: Fail on deviation
+        if: steps.parity.outputs.status != '0'
+        run: |
+          echo "::error::The validator deviates from KoSIT or Mustang, see the log above."
+          exit 1

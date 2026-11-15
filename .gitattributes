@@ -1,0 +1,6 @@
+# The official rule files (XSD, XSLT, Schematron) come from KoSIT and FeRD and
+# are only bundled; they do not count as code of this project.
+rules/** linguist-vendored
+rules/** -text
+testdata/** linguist-generated
+testdata/** -text
